@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taba Beach - اتصل بنا</title>
+    <link rel="icon" href="./statics/logoooo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-card {
+            max-width: 600px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.589);
+            backdrop-filter: blur(5px);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            border-right: 8px solid var(--main-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .contact-item { margin: 20px 0; font-size: 1.2rem; color: #444; }
+        
+        /* لون العناوين الفرعية (📍، 📞، ✉️) */
+        .contact-item strong { color: #996515; } 
+
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .social-btn .icon { font-size: 1.5rem; margin-left: 15px; width: 30px; }
+        .social-btn .text { flex-grow: 1; color: #000; }
+        .social-btn .arrow { opacity: 0; transform: translateX(10px); transition: 0.3s; color: var(--main-gold); }
+
+        .social-btn:hover {
+            transform: scale(1.02);
+            border-color: var(--main-gold);
+            background: rgba(212, 175, 55, 0.1);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .social-btn:hover .arrow { opacity: 1; transform: translateX(0); }
+
+        .contact-info-list .contact-item a { color: #000; text-decoration: none; transition: 0.3s; }
+        .contact-info-list .contact-item a:hover { color: var(--main-gold); }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <div class="logo-box">
+            <img src="./statics/logoooo.png" alt="Logo" style="width: 90%;">
+        </div>
+        <div class="site-name">Taba Beach</div>
+    </div>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">☰</label>
+        <ul>
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+            <li><a href="pricing.html">الأسعار</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="contact-card">
+    <h2 style="margin-bottom: 25px; color: #996515;">معلومات التواصل</h2>
+        <hr style="border: 0.1px solid rgba(212, 175, 55, 0.2); margin: 20px 0;">
+
+    <div class="contact-info-list">
+        <div class="contact-item"><strong>📍 العنوان:</strong>   بجوار فندق موفمبيق</div>
+        <div class="contact-item"><strong>📞 الهاتف:</strong> <a href="tel:01035637048">01092228722</a></div>
+    </div>
+
+
+    <!-- <h3 style="color: #333; font-size: 1.1rem; margin-bottom: 15px;">تابعنا على منصاتنا:</h3>
+    
+    <div class="social-buttons">
+        <a href="https://www.facebook.com/Techno.Science.TC" target="_blank" class="social-btn facebook">
+            <span class="icon">f</span>
+            <span class="text">صفحتنا على فيسبوك</span>
+            <span class="arrow">←</span>
+        </a>
+
+        <a href="https://www.tiktok.com/@techno.sciences" target="_blank" class="social-btn tiktok">
+            <span class="icon">♪</span>
+            <span class="text">تابعنا على تيك توك</span>
+            <span class="arrow">←</span>
+        </a>
+    </div> -->
+
+
+
+    <div class="footer__content">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2150.185654384757!2d34.89221320635988!3d29.491426071657298!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x150075007733c279%3A0xad3025255b3fb863!2sNezo%20Taba%20Beach!5e1!3m2!1sen!2seg!4v1771011934605!5m2!1sen!2seg"  width="100%" height="450px" style=" border:30; border-radius: 30px; border-color: #647953;"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <br>
+
+    </div>
+    
+
+</div>
+
+    <footer>
+        <div style="text-align: center;">
+            <h5 class="footer-bottom"> &copy; 2026 Techno Science - جميع الحقوق محفوظة</h5>
+        </div>
+    </footer>
+
+</body>
+</html>
