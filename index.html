@@ -1,418 +1,375 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taba Beach - الرئيسية</title>
-    <link rel="icon" href="./statics/logoooo.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>نادي الإخلاص  </title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* التنسيقات الأساسية */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
-            --main-gold1: #f1b40b;
-            --main-green1: #398c15;
+            --wood-brown: #301908;
+            --led-gold: #ffbf00;
+            --led-pink: #ff0055;
+            --led-shadow: 0 0 15px rgba(255, 204, 0, 0.8), 0 0 30px rgba(255, 204, 0, 0.4);
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f8ff;
-            text-align: center;
+            font-family: 'Cairo', sans-serif;
+            background: #1f1007;
+            color: white;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+/* الأنماط المتحركة للـ Header والـ Footer */
+header, footer {
+    /* لون الخلفية الأساسي */
+    background-color: var(--wood-brown);
+    /* إضافة نمط خطوط مائلة أغمق قليلاً */
+    background-image: linear-gradient(
+        45deg, 
+        rgba(0, 0, 0, 0.2) 25%, 
+        transparent 25%, 
+        transparent 50%, 
+        rgba(0, 0, 0, 0.2) 50%, 
+        rgba(0, 0, 0, 0.2) 75%, 
+        transparent 75%, 
+        transparent
+    );
+    background-size: 80px 80px; /* حجم النمط */
+    animation: movePattern 30s linear infinite; /* تشغيل الحركة */
+}
+
+header {
+    padding: 12px 5%;
+    backdrop-filter: blur(4px);
+    border-bottom: 2px solid var(--led-gold);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+footer {
+    padding: 15px 12px;
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--led-gold);
+    width: 100%;
+    margin-top: auto;
+    font-weight: 600;
+    border-top: 2px solid var(--led-gold);
+}
+
+/* حركة النمط */
+@keyframes movePattern {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 800px 40px;
+    }
+}
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-link {
+            color: var(--led-gold);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 8px 18px;
+            border: 1px solid var(--led-gold);
+            border-radius: 40px;
+            transition: 0.3s;
+            background: rgba(0,0,0,0.6);
+            letter-spacing: 0.5px;
+        }
+
+        .contact-link:hover {
+            background: var(--led-gold);
+            color: #1a1a00;
+            box-shadow: 0 0 12px var(--led-gold);
         }
 
         .hero {
-            backdrop-filter: blur(5px);
-            min-height: 70vh;
+            position: relative;
+            flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            
+            /* منع التكرار وجعل الصورة تغطي المساحة بالكامل */
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+                        url('./photo/Gemini_Generated_Image_mffzo8mffzo8mffz.png');
+            background-repeat: no-repeat;
+            
+            /* جعل العرض أكبر قليلاً للحركة مع الحفاظ على الطول يغطي الشاشة */
+            background-size: auto 100vh; 
+            
+            /* في الشاشات الكبيرة نضمن إنها بتغطي العرض برضه */
+            background-attachment: fixed; 
+
+            margin: 20px 20px 30px 20px;
+            padding: 25px 20px;
             text-align: center;
-            background: linear-gradient(rgba(18, 82, 95, 0.7), rgba(18, 82, 95, 0.7)), url('your-background-image.jpg');
-            background-size: cover;
-            margin: 40px 5%;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(33, 33, 33, 0.2);
-            color: white;
+            border: 3px solid var(--led-gold);
+            border-radius: 28px;
+            box-shadow: var(--led-shadow), inset var(--led-shadow);
+            
+            /* الحركة */
+            animation: moveBackground 30s ease-in-out infinite alternate;
+            overflow: hidden;
         }
 
-        .hero h1 span {
-            color: var(--main-gold1);
+        /* تعديل الـ Keyframes لتناسب حجم الـ auto 100vh */
+        @keyframes moveBackground {
+            0% {
+                background-position: left center;
+            }
+            100% {
+                background-position: right center;
+            }
         }
 
-        /* حاوية الزراير الكبيرة */
+        /* ميديا كويري لضمان إنها تغطي العرض في الشاشات الواسعة جداً */
+        @media (min-aspect-ratio: 16/9) {
+            .hero {
+                background-size: 110% auto; /* تكبير العرض في الشاشات العريضة */
+            }
+        }
+
+        .neon-title {
+            font-size: clamp(2.2rem, 10vw, 4.2rem);
+            white-space: nowrap;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 0 5px #fff, 0 0 20px var(--led-pink), 0 0 45px var(--led-pink);
+            animation: flicker 2s infinite alternate;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+            20%, 24%, 55% { opacity: 0.8; }
+        }
+
+        .hero h3 {
+            font-size: clamp(1.3rem, 6vw, 2rem);
+            color: #00ecff;
+            margin: 8px 0;
+            font-weight: 800;
+        }
+
+        .hero h4 {
+            font-size: clamp(1rem, 4.5vw, 1.3rem);
+            max-width: 85%;
+            color: #f0e6c5;
+            margin: 12px 0;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
         .main-actions {
             display: flex;
-            gap: 20px;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 25px;
+            width: 80%;
+            max-width: 260px;
             align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 25px;
         }
 
-        /* الزرار الأول التفاعلي */
-        .btn-container {
-            position: relative;
-            width: 200px;
-            height: 55px;
-        }
-
-        .main-btn,
-        .gallery-btn {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 18px;
+        .wood-btn {
+            background: var(--wood-brown);
+            color: var(--led-gold) !important;
+            padding: 14px 20px;
+            border-radius: 60px;
             font-weight: bold;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 1.25rem;
+            text-align: center;
             text-decoration: none;
-            color: white !important;
+            border: 2px solid #e4a022;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            width: 100%;
+            display: inline-block;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
         }
 
-        .main-btn {
-            background-color: #0077b6;
+        .wood-btn:hover {
+            transform: scale(1.02);
+            background: #4e301c;
+            border-color: var(--led-gold);
+            box-shadow: 0 0 12px var(--led-gold);
         }
 
-        .gallery-btn {
-            background-color: #e67e22;
-        }
-
-        .main-btn:hover,
-        .gallery-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        /* خيارات المنيو اللي بتظهر */
         .menu-options {
             display: none;
-            /* مخفي افتراضياً */
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: white;
-            border-radius: 50px;
-            border: 2px solid #0077b6;
-            overflow: hidden;
-            z-index: 10;
+            background: #1e1305e6;
+            backdrop-filter: blur(8px);
+            border: 2px solid #00ecff;
+            border-radius: 60px;
+            z-index: 100;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
         }
 
         .option {
-            flex: 1;
-            border: none;
-            background: white;
-            cursor: pointer;
+            background: #2c1c0b;
+            border: 1px solid var(--led-gold);
+            color: #ffefb9;
             font-weight: bold;
-            color: #0077b6;
-            transition: background 0.3s;
-        }
-
-        .option:first-child {
-            border-left: 1px solid #0077b6;
+            font-family: 'Cairo';
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.2s;
         }
 
         .option:hover {
-            background-color: #caf0f8;
+            background: var(--led-gold);
+            color: #1f1a00;
+            transform: scale(1.02);
         }
 
-        /* زرار تواصل معنا الصغير */
-        .btn-green1 {
-            background: var(--main-green1);
-            padding: 10px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
+        .btn-wrapper {
+            position: relative;
+            width: 100%;
         }
 
-        .hidden {
-            display: none !important;
+        .hidden { display: none !important; }
+        .visible { display: flex !important; }
+
+
+        @media (max-width: 550px) {
+            .hero {
+                margin: 12px 12px 20px 12px;
+                padding: 20px 12px;
+            }
+            .wood-btn {
+                font-size: 1.1rem;
+                padding: 12px 16px;
+            }
+            .neon-title {
+                font-size: clamp(3.2rem, 9vw, 2.8rem);
+            }
+            .hero h4 { max-width: 95%; }
+            .main-actions {
+                width: 90%;
+                max-width: 240px;
+            }
         }
 
-        .visible {
-            display: flex !important;
+        @media (max-width: 380px) {
+            .wood-btn {
+                font-size: 0.95rem;
+                padding: 10px 8px;
+            }
+            .neon-title {
+                font-size: clamp(1.4rem, 7vw, 2rem);
+            }
+            .main-actions { gap: 12px; }
         }
 
-
-
-
-
-
-
-
-        /* --- تنسيقات المساعد الذكي (فقاعة الماسنجر) --- */
-        #ai-bubble-container {
-            position: fixed;
-            bottom: 65px; /* فوق زرار التحميل */
-            right: 20px;
-            z-index: 9999;
-            touch-action: none; /* لمنع التمرير أثناء السحب */
+        @media (min-width: 900px) {
+            .main-actions { max-width: 300px; }
+            .wood-btn { font-size: 1.4rem; }
         }
-
-        .ai-bubble {
-            width: 60px;
-            height: 60px;
-            background: var(--ai-blue);
-            border-radius: 50%;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            cursor: grab;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 3px solid rgb(255, 255, 255);
-            transition: transform 0.2s;
-        }
-
-        .ai-bubble:active { cursor: grabbing; }
-
-        .ai-bubble img {
-            width: 80%;
-            height: 80%;
-            border-radius: 50%;
-        }
-
-        /* رسالة ترحيبية منبثقة */
-        .ai-welcome-msg {
-            position: absolute;
-            right: 65px;
-            top: 10px;
-            background: rgba(255, 255, 255, 0.39);
-            color: #333;
-            padding: 10px 15px;
-            border-radius: 15px 15px 0 15px;
-            font-size: 14px;
-            font-weight: bold;
-            width: 180px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            direction: rtl;
-            animation: popIn 0.5s ease forwards;
-        }
-
-        /* منطقة الحذف (أسفل الشاشة) */
-        #delete-zone {
-            position: fixed;
-            bottom: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 0, 0, 0.2);
-            border: 2px dashed red;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: red;
-            transition: 0.3s;
-            z-index: 9998;
-        }
-
-        #delete-zone.active { bottom: 20px; }
-
-        @keyframes popIn {
-            from { opacity: 0; transform: scale(0.8) translateX(20px); }
-            to { opacity: 1; transform: scale(1) translateX(0); }
-        }
-
     </style>
 </head>
 
 <body>
 
     <header>
-        <div class="logo-container">
-            <div class="logo-box">
-                <img src="./statics/logoooo.png" alt="Logo" style="width: 100%;">
-            </div>
-            <div class="site-name">Taba Beach</div>
-        </div>
-        <nav >
-            <input type="checkbox" id="check" >
-            <label for="check" class="checkbtn" >☰</label>
-            <ul >
-                <li><a href="index.html">الرئيسية</a></li>
-                <li><a href="contact.html">تواصل معنا</a></li>
-                <li><a href="pricing.html">الأسعار</a></li>
-            </ul>
+        <nav>
+            <a href="contact.html" class="contact-link">📞 تواصل معنا</a>
         </nav>
     </header>
 
     <section class="hero">
-        <img src="./statics/logoooo.png" alt="Logo" class="responsive-logo">
-        <h1><span>Taba Beach</span></h1>
-        <h3 style="color: #ffffff;"> نورت طابا .. بيتك التاني على البحر</h3><br>
-        <h4 style="color: #ffffff;">هنا مش بس هتقضي يوم، هنا هتاكل لقمة حلوة في مطعمنا، وتعدل مزاجك في الكافيه، وتنام
-            وتصحى على صوت الموج في شاليهاتنا. لو بتدور على مكان تفصل فيه وتنسى زحمة الحياة، مفيش أحسن من حضن جبال طابا
-            وبحرها </h4><br>
+        <h1 class="neon-title">نادي الإخلاص</h1>
+        <h3>أحلى قعدة بلدي على أصولها</h3>
+        <h4>نورت نادي اللإخاص.. شاي في الخمسينة وقهوة تعدل الدماغ وكراسي تريح البال.</h4>
 
-        <div class="main-actions">
-            <div class="btn-container">
-                <button id="menuBtn" class="main-btn" onclick="showOptions(event)">تبدأ بـإيـه؟</button>
-
+        <div class="main-actions"><br>
+            <div class="btn-wrapper" id="drinkWrapper">
+                <button id="menuBtn" class="wood-btn" onclick="showOptions(event)"> تشرب إيه؟  ☕</button>
                 <div id="options" class="menu-options">
-                    <button class="option" onclick="location.href='menu1.html'">آكل 🍕</button>
-                    <button class="option" onclick="location.href='menu2.html'">أشرب ☕</button>
-                </div>
+                    <button class="option" onclick="location.href='./menu1.html'">ساقع 🍸</button>
+                    <button class="option" onclick="location.href='./menu2.html'">سخن 🍵</button>
+                </div><br><br><br>
             </div>
-
-            <div class="btn-container">
-                <a href="gallery.html" class="gallery-btn">اتفرج على المكان</a>
-            </div>
+            <a href="gallery.html" class="wood-btn"> اتفرج عالقعدة</a>
         </div>
-
     </section>
 
-    <div id="ai-bubble-container">
-        <div class="ai-welcome-msg" id="aiWelcome">أهلاً بك! أنا مساعدك الذكي، كيف يمكنني مساعدتك؟</div>
-        <div class="ai-bubble" id="aiBubble" onclick="goToChat()">
-            <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="AI Robot">
-        </div>
-    </div>
-
-    <div id="delete-zone" id="deleteZone">
-        <i class="fas fa-trash-alt fa-2x"></i>
-    </div>
-
-    <a href="./statics/Taba Beach.apk" class="download-fab" download>
-        <img src="./statics/pngwing.com (3).png" alt="Download" class="fab-icon-img">
-        <span class="fab-text">تحميل التطبيق</span>
-    </a>
-
-    <footer>        
-        <a href="contact.html" class="btn btn-green1" style="background: var(--main-green1); flex: 1;"> تواصل معنا </a><br><br><hr>
-        <h5 class="footer-bottom"> &copy; 2026 Techno Science - جميع الحقوق محفوظة</h5>
+    <footer>
+        &copy; 2026 Techno Science - جميع الحقوق محفوظة
     </footer>
 
     <script>
         function showOptions(event) {
-            // منع الحدث من الانتشار عشان الـ window.onclick ميرجعش يقفله فوراً
             event.stopPropagation();
-            document.getElementById('menuBtn').classList.add('hidden');
-            document.getElementById('options').classList.add('visible');
+            const menuBtn = document.getElementById('menuBtn');
+            const optionsDiv = document.getElementById('options');
+            if (menuBtn && optionsDiv) {
+                menuBtn.classList.add('hidden');
+                optionsDiv.classList.add('visible');
+            }
         }
 
-        // لو المستخدم داس في أي حتة في الصفحة يرجع الزرار لأصله
         window.onclick = function (event) {
-            var menuBtn = document.getElementById('menuBtn');
-            var options = document.getElementById('options');
-
-            if (!event.target.closest('.btn-container')) {
-                menuBtn.classList.remove('hidden');
-                options.classList.remove('visible');
-            }
-        }
-    </script>
-
-    <script>
-        // --- وظائف المنيو القديمة ---
-        function showOptions(event) {
-            event.stopPropagation();
-            document.getElementById('menuBtn').classList.add('hidden');
-            document.getElementById('options').classList.add('visible');
-        }
-        window.onclick = function (event) {
-            if (!event.target.closest('.btn-container')) {
-                document.getElementById('menuBtn').classList.remove('hidden');
-                document.getElementById('options').classList.remove('visible');
-            }
-        }
-
-        // --- وظائف المساعد الذكي (السحب والإفلات) ---
-        const bubble = document.getElementById('ai-bubble-container');
-        const welcomeMsg = document.getElementById('aiWelcome');
-        const deleteZone = document.getElementById('delete-zone');
-        let isDragging = false;
-        let currentX;
-        let currentY;
-        let initialX;
-        let initialY;
-        let xOffset = 0;
-        let yOffset = 0;
-
-        // إخفاء رسالة الترحيب بعد 5 ثواني
-        setTimeout(() => { welcomeMsg.style.display = 'none'; }, 6000);
-
-        function goToChat() {
-            if (!isDragging) {
-                // استبدل chat.html برابط صفحة الشات التي صنعناها
-                window.location.href = './aichat.html'; 
-            }
-        }
-
-        bubble.addEventListener('touchstart', dragStart, {passive: false});
-        bubble.addEventListener('touchend', dragEnd, {passive: false});
-        bubble.addEventListener('touchmove', drag, {passive: false});
-
-        bubble.addEventListener('mousedown', dragStart);
-        document.addEventListener('mouseup', dragEnd);
-        document.addEventListener('mousemove', drag);
-
-        function dragStart(e) {
-            if (e.type === "touchstart") {
-                initialX = e.touches[0].clientX - xOffset;
-                initialY = e.touches[0].clientY - yOffset;
-            } else {
-                initialX = e.clientX - xOffset;
-                initialY = e.clientY - yOffset;
-            }
-            if (e.target.closest('#aiBubble')) {
-                isDragging = true;
-                deleteZone.classList.add('active');
-                welcomeMsg.style.display = 'none'; // إخفاء الرسالة عند التحريك
-            }
-        }
-
-        function dragEnd(e) {
-            initialX = currentX;
-            initialY = currentY;
-            isDragging = false;
+            const menuBtn = document.getElementById('menuBtn');
+            const optionsDiv = document.getElementById('options');
             
-            // تحقق إذا كان البوت في منطقة الحذف
-            const rect = deleteZone.getBoundingClientRect();
-            const bubbleRect = bubble.getBoundingClientRect();
-            
-            if (bubbleRect.top > rect.top - 50 && 
-                bubbleRect.left > rect.left - 50 && 
-                bubbleRect.left < rect.right + 50) {
-                bubble.style.display = 'none';
-            }
-
-            deleteZone.classList.remove('active');
-        }
-
-        function drag(e) {
-            if (isDragging) {
-                e.preventDefault();
-                if (e.type === "touchmove") {
-                    currentX = e.touches[0].clientX - initialX;
-                    currentY = e.touches[0].clientY - initialY;
-                } else {
-                    currentX = e.clientX - initialX;
-                    currentY = e.clientY - initialY;
+            if (!event.target.closest('.menu-options') && !event.target.closest('#menuBtn')) {
+                if (menuBtn && optionsDiv) {
+                    if (!menuBtn.classList.contains('hidden')) return;
+                    menuBtn.classList.remove('hidden');
+                    optionsDiv.classList.remove('visible');
                 }
-
-                xOffset = currentX;
-                yOffset = currentY;
-
-                setTranslate(currentX, currentY, bubble);
             }
-        }
+            
+            if (event.target.classList && event.target.classList.contains('option')) {
+                return;
+            }
+        };
 
-        function setTranslate(xPos, yPos, el) {
-            el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.getElementById('menuBtn');
+            const optionsDiv = document.getElementById('options');
+            if(menuBtn && optionsDiv) {
+                menuBtn.classList.remove('hidden');
+                optionsDiv.classList.remove('visible');
+            }
+        });
     </script>
-
 </body>
 
 </html>
